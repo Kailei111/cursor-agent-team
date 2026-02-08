@@ -86,10 +86,6 @@ if [ -f "$PROJECT_ROOT/.cursor/commands/spec_translator.md" ]; then
     rm -f "$PROJECT_ROOT/.cursor/commands/spec_translator.md"
     REMOVED_ITEMS+=(".cursor/commands/spec_translator.md")
 fi
-if [ -f "$PROJECT_ROOT/.cursor/commands/writer.md" ]; then
-    rm -f "$PROJECT_ROOT/.cursor/commands/writer.md"
-    REMOVED_ITEMS+=(".cursor/commands/writer.md")
-fi
 
 # Delete rule files
 if [ -f "$PROJECT_ROOT/.cursor/rules/discussion_assistant.mdc" ]; then
@@ -123,10 +119,6 @@ fi
 if [ -f "$PROJECT_ROOT/.cursor/rules/social_media_policy.mdc" ]; then
     rm -f "$PROJECT_ROOT/.cursor/rules/social_media_policy.mdc"
     REMOVED_ITEMS+=(".cursor/rules/social_media_policy.mdc")
-fi
-if [ -f "$PROJECT_ROOT/.cursor/rules/writer_assistant.mdc" ]; then
-    rm -f "$PROJECT_ROOT/.cursor/rules/writer_assistant.mdc"
-    REMOVED_ITEMS+=(".cursor/rules/writer_assistant.mdc")
 fi
 
 # Step 3: Remove installation info

@@ -102,12 +102,6 @@ else
     echo -e "${RED}Error: Failed to copy spec_translator.md${NC}"
     exit 1
 fi
-if cp "$PROJECT_ROOT/$SUBMODULE_DIR/_cursor/commands/writer.md" "$PROJECT_ROOT/.cursor/commands/"; then
-    INSTALLED_ITEMS+=(".cursor/commands/writer.md")
-else
-    echo -e "${RED}Error: Failed to copy writer.md${NC}"
-    exit 1
-fi
 
 # Copy rule files
 echo "  Copying rule files..."
@@ -183,12 +177,6 @@ else
     echo -e "${RED}Error: Failed to copy social_media_policy.mdc${NC}"
     exit 1
 fi
-if cp "$PROJECT_ROOT/$SUBMODULE_DIR/_cursor/rules/writer_assistant.mdc" "$PROJECT_ROOT/.cursor/rules/"; then
-    INSTALLED_ITEMS+=(".cursor/rules/writer_assistant.mdc")
-else
-    echo -e "${RED}Error: Failed to copy writer_assistant.mdc${NC}"
-    exit 1
-fi
 
 # Copy config files (only if not exists, to preserve user settings)
 echo "  Copying config files..."
@@ -238,7 +226,6 @@ cat > "$INSTALL_INFO_FILE" << EOF
     ".cursor/commands/prompt_engineer.md",
     ".cursor/commands/crew.md",
     ".cursor/commands/spec_translator.md",
-    ".cursor/commands/writer.md",
     ".cursor/rules/discussion_assistant.mdc",
     ".cursor/rules/prompt_engineer_assistant.mdc",
     ".cursor/rules/crew_assistant.mdc",
@@ -251,7 +238,6 @@ cat > "$INSTALL_INFO_FILE" << EOF
     ".cursor/rules/persona_definition.mdc",
     ".cursor/rules/history_context_handler.mdc",
     ".cursor/rules/social_media_policy.mdc",
-    ".cursor/rules/writer_assistant.mdc",
     "$SUBMODULE_DIR/config/persona_config.yaml"
   ]
 }
@@ -313,7 +299,6 @@ echo "You can now use the following commands in Cursor:"
 echo "  /discuss - Discussion partner"
 echo "  /prompt_engineer - Prompt engineer"
 echo "  /crew - Crew member"
-echo "  /writer - Academic writer (extends crew)"
 echo "  /spec_translator - Spec-Kit translator (additional feature)"
 echo ""
 echo "Persona System:"
