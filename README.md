@@ -39,11 +39,11 @@ We augment human capability; we don't replace it. Three design pillars:
 
 3. **Empowerment, not replacement** — Democratizing team access: individuals get team-level capability. Cognitive load redistribution: you think strategy, we handle execution details. Frees you from the "details quagmire" for purer thinking.
 
-**Target users**: Individuals and small teams with methodological awareness—those who think about *how* they work with AI, not just *what* they want AI to do. This is not a plug-and-play solution for users seeking immediate productivity gains without conceptual investment.
+**Target users**: Individuals and small teams with methodological awareness—those who think about *how* they work with AI, not just *what* they want AI to do.
 
 **We believe**: AI should augment human judgment, not replace it. Context continuity matters more than agent count. Plans grounded in fresh research beat plans from training data alone. And the human must remain in the loop—as conductor, not spectator.
 
-## What it is
+## Core Model
 
 A **multi-role collaboration framework** for Cursor IDE and Qwen Code. One LLM wears different "masks" (commands) in the same conversation. Provides:
 
@@ -88,7 +88,7 @@ Tell Cursor Agent:
 Install cursor-agent-team from https://github.com/thiswind/cursor-agent-team.git as a submodule and run the install script.
 ```
 
-Then type `/discuss` to start.
+Then type `/discuss` to start and briefly describe what you want to achieve (e.g., "help me design and write a technical report on X").
 
 For manual installation or Qwen Code, see [Installation](#installation).
 
@@ -184,7 +184,7 @@ Hybrid architecture: LLM soft constraints (prompt rules) + script hard constrain
 
 ## Why This Architecture
 
-We are not behind the Skills wave—we are ahead of it. Our design addresses problems that traditional rules-based and skill-based architectures cannot solve.
+We started from a different point than the Skills wave. Our design addresses problems that traditional rules-based and skill-based architectures cannot solve.
 
 ### Orchestration vs Capability
 
@@ -211,7 +211,7 @@ Cursor provides Commands (workflow definition), Rules (aspect definition), and A
 **This binding is intentional.** We start with Cursor because:
 - Its Rules, integrated terminal, and workspace model align naturally with our command–rules–scripts–workspace architecture
 - It aggregates state-of-the-art models behind a single subscription
-- Its IDE experience (interface, file tree, workspace semantics) currently leads the space
+- Its IDE experience (interface, file tree, workspace semantics) matches our needs
 
 We prioritize **depth on Cursor** rather than breadth of platform support. A watered-down, platform-agnostic version would lose the tight spec-script loop that makes our methodology work.
 
@@ -264,12 +264,12 @@ Or in BibTeX:
 
 ```bibtex
 @article{hu2026cursor,
-  author = {Hu, Kuang},
-  title = {cursor-agent-team: A Multi-Role, Single-Conversation Framework for Human-AI Collaboration},
-  year = {2026},
+  author    = {Hu, Kuang},
+  title     = {cursor-agent-team: A Multi-Role, Single-Conversation Framework for Human-AI Collaboration},
+  year      = {2026},
   publisher = {Zenodo},
-  doi = {10.5281/zenodo.18605311},
-  url = {https://doi.org/10.5281/zenodo.18605311}
+  doi       = {10.5281/zenodo.18605311},
+  url       = {https://doi.org/10.5281/zenodo.18605311}
 }
 ```
 
