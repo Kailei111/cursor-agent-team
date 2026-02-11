@@ -4,7 +4,7 @@
 
 # Cursor AI Agent Team Framework
 
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18605311-blue)](https://doi.org/10.5281/zenodo.18605311)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18605311.svg)](https://doi.org/10.5281/zenodo.18605311)
 
 **A methodology for human-AI collaboration, implemented as a Cursor framework.** Intelligence augmentation — an elite team under your command, with zero handoff and inherent context continuity.
 
