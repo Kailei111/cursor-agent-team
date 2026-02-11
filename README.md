@@ -54,12 +54,16 @@ A **multi-role collaboration framework** for Cursor IDE and Qwen Code. One LLM w
 
 ## Positioning & Related Concepts
 
+### Concept Mapping
+
 | Concept | Our approach |
 |---------|--------------|
 | **Intelligence Augmentation (IA)** | We augment human cognitive capability rather than replace it (Licklider's man-computer symbiosis; Springer 2024) |
 | **Multi-role vs multi-agent** | Multi-agent systems use handoffs; context loss is a critical challenge. We avoid it by design: zero handoff, one conversation |
 | **Human-AI teaming** | Human as conductor; AI roles are "masks" in the same meeting (National Academies 2022) |
 | **Cognitive load redistribution** | You focus on strategy; we handle execution details (Cognitive Load Theory) |
+
+### Compared to Adjacent Approaches
 
 | vs | cursor-agent-team |
 |----|-------------------|
