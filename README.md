@@ -4,6 +4,8 @@
 
 # Cursor AI Agent Team Framework
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18605311.svg)](https://doi.org/10.5281/zenodo.18605311)
+
 **A methodology for human-AI collaboration, implemented as a Cursor framework.** Intelligence augmentation — an elite team under your command, with zero handoff and inherent context continuity.
 
 cursor-agent-team is first a **methodology and a philosophy** of how humans and AI should work together—then a framework that implements it. How we think about AI shapes how we build with it.
@@ -247,7 +249,7 @@ This framework is grounded in peer-reviewed research:
 
 For a detailed treatment, see our preprint:
 > cursor-agent-team: A Multi-Role, Single-Conversation Framework for Human-AI Collaboration  
-> [Read the paper (PDF)](paper/main.pdf)
+> [Read the paper on Zenodo](https://doi.org/10.5281/zenodo.18605311) | [PDF](paper/main.pdf)
 
 ## Built with cursor-agent-team
 
@@ -269,6 +271,27 @@ We focus on methodology depth over feature breadth. No timeline commitments — 
 ## Version
 
 Current version: **v0.10.13**. See [CHANGELOG.md](CHANGELOG.md).
+
+## Citation
+
+If you use cursor-agent-team in your research, please cite:
+
+```
+Hu, K. (2026). cursor-agent-team: A Multi-Role, Single-Conversation Framework for Human-AI Collaboration. Zenodo. https://doi.org/10.5281/zenodo.18605311
+```
+
+Or in BibTeX:
+
+```bibtex
+@article{hu2026cursor,
+  author = {Hu, Kuang},
+  title = {cursor-agent-team: A Multi-Role, Single-Conversation Framework for Human-AI Collaboration},
+  year = {2026},
+  publisher = {Zenodo},
+  doi = {10.5281/zenodo.18605311},
+  url = {https://doi.org/10.5281/zenodo.18605311}
+}
+```
 
 ## License
 
