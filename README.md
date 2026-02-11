@@ -249,7 +249,7 @@ This framework is grounded in peer-reviewed research:
 
 For a detailed treatment, see our preprint:
 > cursor-agent-team: A Multi-Role, Single-Conversation Framework for Human-AI Collaboration  
-> [Read the paper on Zenodo](https://doi.org/10.5281/zenodo.18605311) | [PDF](paper/main.pdf)
+> [Read the paper on Zenodo](https://doi.org/10.5281/zenodo.18605311) | [PDF](https://zenodo.org/records/18605311/files/cursor-agent-team%20%20A%20Multi-Role,%20Single-Conversation%20Framework%20for%20Human-AI%20Collaboration.pdf?download=1)
 
 ## Built with cursor-agent-team
 
