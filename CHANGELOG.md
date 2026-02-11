@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.10.14] - 2026-02-11
+
+### Changed
+- **README restructure**: Improved readability based on external feedback
+- Added `## Summary` section for faster comprehension
+- Replaced table-based "What This Is" with cleaner bullet lists
+- Added `## What This Is NOT` section
+- Streamlined Features section with 5 sharp differentiators
+- Restructured Research Foundation to lead with Zenodo citation
+- Removed redundant "Built with" and verbose paragraphs in "Why" section
+
+### Technical Details
+- PATCH increment (0.10.13 → 0.10.14)
+- Source: External feedback integration (PLAN-AB-001)
+
 ## [0.10.13] - 2026-02-05
 
 ### Changed

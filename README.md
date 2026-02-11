@@ -6,22 +6,28 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18605311.svg)](https://doi.org/10.5281/zenodo.18605311)
 
-**A methodology for human-AI collaboration, implemented as a Cursor framework.** Intelligence augmentation — an elite team under your command, with zero handoff and inherent context continuity.
+**A single-conversation, multi-role framework that turns Cursor into a stable AI team for real work.** Intelligence augmentation — an elite team under your command, with zero handoff and inherent context continuity.
 
 cursor-agent-team is first a **methodology and a philosophy** of how humans and AI should work together—then a framework that implements it. How we think about AI shapes how we build with it.
 
+## Summary
+
+cursor-agent-team takes a pragmatic approach to "multi-agent" work: you use a single LLM inside one Cursor conversation, and let specialized roles collaborate on real tasks (instead of passing state around between many agents). It behaves like a small-team workflow + Cursor configuration template, not yet another generic multi-agent framework.
+
+It is meant for developers, researchers, and advanced users who want a reliable "AI team" workflow inside Cursor, rather than a simple Q&A assistant.
+
 ## What This Is
 
-cursor-agent-team is an **architectural reference implementation** for single-conversation, multi-role human-AI collaboration.
+- A workflow and methodology centered around a multi-role collaboration pattern, plus a concrete Cursor/Qwen implementation
+- A single-conversation, multi-role template for AI collaboration
+- A practical repo you can fork and tweak to run real projects (papers, reports, code, experiments)
 
-| This IS | This is NOT |
-|---------|-------------|
-| Methodology contribution | Commercial product / SaaS |
-| Reference architecture | General-purpose framework |
-| Advanced tool for methodologically-aware individuals/small teams | Enterprise platform |
-| Single-conversation, multi-role paradigm | Multi-agent, multi-instance paradigm |
+## What This Is NOT
 
-We chose depth over breadth. This is a design blueprint that prioritizes implementation completeness over broad compatibility.
+- Not a hosted SaaS or productized platform
+- Not a "cover every use case" multi-agent framework
+- Not an autonomous pipeline where the AI runs on its own — a human is always in the loop
+- Not a plug-and-play solution for users seeking immediate productivity gains without conceptual investment
 
 ## Why cursor-agent-team?
 
@@ -36,14 +42,6 @@ We augment human capability; we don't replace it. Three design pillars:
 **Target users**: Individuals and small teams with methodological awareness—those who think about *how* they work with AI, not just *what* they want AI to do. This is not a plug-and-play solution for users seeking immediate productivity gains without conceptual investment.
 
 **We believe**: AI should augment human judgment, not replace it. Context continuity matters more than agent count. Plans grounded in fresh research beat plans from training data alone. And the human must remain in the loop—as conductor, not spectator.
-
-**Core value (formal)**: Intelligence Augmentation (IA); Democratization of expertise / Capability expansion; Cognitive load redistribution; Human-in-the-loop (HITL); Human-AI Teaming — human as conductor.
-
-**Core innovation**: Multi-role, single-conversation architecture. Zero handoff → inherent context continuity. Multi-agent systems face context loss at handoff; we avoid it by design. No AI-AI coordination; human orchestrates.
-
-**Design philosophy**: (1) Intelligence Augmentation — augment, not replace. (2) Human-in-the-loop by design; not set-and-forget. (3) Multi-role, not multi-agent — role as "mask," single conversation. (4) Human-AI teaming — human as conductor.
-
-**Design principles**: Zero handoff; Plan-and-Execute (planning-execution separation); Constrained generation / specification-driven; Exploration vs exploitation (by role); Retrieval-augmented planning (knowledge cutoff mitigation); Dedicated agent workspace (scratchpad, external memory, staged generation); Common Ground / Mental Model Alignment (persona); Persona Sandboxing.
 
 ## What it is
 
@@ -142,32 +140,26 @@ Update: `git submodule update --remote cursor-agent-team && ./cursor-agent-team/
 
 ## Features
 
-### Core
+- **Single conversation, multi-role**: all roles share one context; no complex state routing or orchestration layer
+- **Human-in-the-loop by design**: the workflow assumes you are present; major decisions require your confirmation
+- **Hard constraints in code, soft skills in the LLM**: topic tree validation, preflight checks, and other rules live in scripts; the LLM focuses on reasoning and generation
+- **Cursor-first experience**: commands and flows are designed around Cursor; no extra backend services required
+- **Proven in a real research project**: the cursor-agent-team paper was written using this framework inside Cursor
 
-**Agent Workspace** — Dedicated persistent workspace for agents. Agents can write scripts, take notes, save intermediate results from searches and research. Aligns with scratchpad reasoning and external memory research; enables staged refinement for higher output quality than direct generation. See `ai_workspace/README.md`.
+### Agent Workspace
 
-**Persona System (v0.8.0+)** — Script-driven persona integration with **Persona Sandboxing**: the persona expresses at the Output Layer; the Work Layer (code, analysis, reasoning) runs in a clean context. This prevents style contamination from affecting technical accuracy. Based on [persona-spec](https://github.com/thiswind/persona-spec).
+Dedicated persistent workspace for agents. Agents can write scripts, take notes, save intermediate results from searches and research. Enables staged refinement for higher output quality than direct generation. See `ai_workspace/README.md`.
 
-Communication requires synchronization of mental models. Persona provides warmth and rapport that increase human affinity and trust, improving coordination efficiency between human leaders and AI teams—not for companionship, but for more effective human-machine collaboration.
+### Persona System (v0.8.0+)
 
-```bash
-python cursor-agent-team/_scripts/persona_output.py --check
-```
+Script-driven persona integration with **Persona Sandboxing**: the persona expresses at the Output Layer; the Work Layer (code, analysis, reasoning) runs in a clean context. Based on [persona-spec](https://github.com/thiswind/persona-spec).
 
-**Inspiration Capital (v0.7.0+)** — Scatter card collection for sparking creativity.
+### Extended Features
 
-```bash
-python ai_workspace/inspiration_capital/scripts/create_card.py --source "Source" --trigger "Trigger"
-python ai_workspace/inspiration_capital/scripts/draw_cards.py --count 3
-```
-
-See `ai_workspace/inspiration_capital/README.md` for details.
-
-### Extended
-
-- **Text-to-Speech (macOS)**: Voice feedback via `say`; activated when user requests ("read to me"). `python cursor-agent-team/_scripts/tts_speak.py --check`
-- **Social Media**: Integration with [Moltbook](https://moltbook.com/). See `.cursor/rules/social_media_policy.mdc`
-- **Spec-Kit Translator**: Converts plans to [spec-kit](https://github.com/github/spec-kit) format. `/spec_translator PLAN-B-001`
+- **Inspiration Capital**: Scatter card collection for sparking creativity
+- **Text-to-Speech (macOS)**: Voice feedback via `say`
+- **Social Media**: Integration with [Moltbook](https://moltbook.com/)
+- **Spec-Kit Translator**: Converts plans to spec-kit format
 
 ## Technical Architecture
 
@@ -238,29 +230,17 @@ We don't transfer state; we swap masks. The "Writer" knows what the "Planner" di
 
 ## Research Foundation
 
-This framework is grounded in peer-reviewed research:
+This repository is the reference implementation of:
 
-| Concept | Foundation |
-|---------|------------|
-| Intelligence Augmentation | Licklider (1960): human-computer symbiosis |
-| Lost in the Middle | Liu et al. (2023): context degradation in long sequences |
-| Aspect-Oriented Programming | Kiczales et al. (1997): cross-cutting concerns separation |
-| Retrieval-Augmented Planning | RaDA, RPG: fresh information before synthesis |
+> Hu, K. (2026). cursor-agent-team: A Multi-Role, Single-Conversation Framework for Human-AI Collaboration. Zenodo. https://doi.org/10.5281/zenodo.18605311
 
-For a detailed treatment, see our preprint:
-> cursor-agent-team: A Multi-Role, Single-Conversation Framework for Human-AI Collaboration  
-> [Read the paper on Zenodo](https://doi.org/10.5281/zenodo.18605311) | [PDF](https://zenodo.org/records/18605311/files/cursor-agent-team%20%20A%20Multi-Role,%20Single-Conversation%20Framework%20for%20Human-AI%20Collaboration.pdf?download=1)
+The paper itself was written using this framework inside Cursor as a dogfooding case study.
 
-## Built with cursor-agent-team
-
-We used this framework to write its own academic paper—a form of "dogfooding" that subjects the methodology to its own claims.
-
-- **Five structured plans** (PLAN-AA-001 through PLAN-AA-005) executed via `/crew` and `/writer`
-- **Minimal handoff in action**: the writer role retained full context of design discussions
-- **Phase markers** prevented step-skipping; vocabulary bans were enforced via external `grep`
-- **Result**: 4,000-word preprint, 12 pages, ready for arXiv submission
-
-This self-referential implementation experience validates the framework's practical utility.
+Grounded in peer-reviewed research:
+- **Intelligence Augmentation**: Licklider (1960) — human-computer symbiosis
+- **Lost in the Middle**: Liu et al. (2023) — context degradation in long sequences
+- **Aspect-Oriented Programming**: Kiczales et al. (1997) — cross-cutting concerns separation
+- **Retrieval-Augmented Planning**: RaDA, RPG — fresh information before synthesis
 
 ## Direction
 
@@ -270,7 +250,7 @@ We focus on methodology depth over feature breadth. No timeline commitments — 
 
 ## Version
 
-Current version: **v0.10.13**. See [CHANGELOG.md](CHANGELOG.md).
+Current version: **v0.10.14**. See [CHANGELOG.md](CHANGELOG.md).
 
 ## Citation
 
