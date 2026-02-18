@@ -1,20 +1,21 @@
 <p align="center">
-  <img src="logo.png" alt="Logo" width="200">
+  <img src="logo.png" alt="cursor-agent-team: Multi-Role AI Team for Cursor" width="200">
 </p>
 
-# Cursor AI Agent Team Framework
+# cursor-agent-team · Cursor AI Agent Team Framework
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18605311.svg)](https://doi.org/10.5281/zenodo.18605311)
 
-**A single-conversation, multi-role framework that turns Cursor into a stable AI team for real work.** Intelligence augmentation — an elite team under your command, with zero handoff and inherent context continuity.
+**cursor-agent-team** is a single-conversation, multi-role framework that turns Cursor into a stable AI **agent team** for real-world development work. It gives you an opinionated way to run multiple specialized roles (architect, engineer, reviewer, etc.) inside one Cursor chat, with minimal handoff and strong context continuity.
 
-cursor-agent-team is first a **methodology and a philosophy** of how humans and AI should work together—then a framework that implements it. How we think about AI shapes how we build with it.
+This project is both a **methodology** and a **framework** for human–AI collaboration in Cursor: it defines how your AI team should think and work together, then ships a concrete setup (prompts + files + workflows) that you can drop into your own repo.
 
 ## Summary
 
-cursor-agent-team takes a pragmatic approach to "multi-agent" work: you use a single LLM inside one Cursor conversation, and let specialized roles collaborate on real tasks (instead of passing state around between many agents). It behaves like a small-team workflow + Cursor configuration template, not yet another generic multi-agent framework.
+cursor-agent-team takes a pragmatic approach to "multi-agent" work in Cursor: instead of spawning many separate agents and passing state around, you keep a single LLM in one conversation and let multiple roles collaborate on the same shared context window. It behaves like a small-team workflow and Cursor configuration template, not yet another generic multi-agent framework.
 
 It is meant for developers, researchers, and advanced users who want a reliable "AI team" workflow inside Cursor, rather than a simple Q&A assistant.
+
 
 ## What This Is
 
