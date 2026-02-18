@@ -2,7 +2,8 @@
   <img src="logo.png" alt="cursor-agent-team: Multi-Role AI Team for Cursor" width="200">
 </p>
 
-# cursor-agent-team · Cursor AI Agent Team Framework
+# cursor-agent-team · Cursor AI Agent Team Framework for Multi-Role, Single-Conversation Collaboration
+
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18605311.svg)](https://doi.org/10.5281/zenodo.18605311)
 
@@ -85,7 +86,21 @@ We occupy a specific niche: **single-conversation, multi-role, context-preservin
 
 **Evaluation context**: Among single-conversation, multi-role, context-heavy approaches, cursor-agent-team is a first-tier architectural reference implementation—designed for methodological exploration, not product deployment.
 
+
+## Who is this for?
+
+cursor-agent-team is designed for developers, researchers, and advanced Cursor users who:
+
+- Want a stable "AI team" inside a single Cursor conversation
+- Care about methodology and workflow, not just ad-hoc prompts
+- Are willing to spend a bit of time setting things up once, in exchange for a reusable workflow
+
+
+
 ## Quick Start
+
+To use cursor-agent-team in Cursor:
+
 
 Tell Cursor Agent:
 
