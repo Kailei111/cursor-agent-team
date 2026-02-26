@@ -276,7 +276,7 @@ We focus on methodology depth over feature breadth. No timeline commitments — 
 
 ## Version
 
-Current version: **v0.11.0**. See [CHANGELOG.md](CHANGELOG.md).
+Current version: **v0.11.1**. See [CHANGELOG.md](CHANGELOG.md).
 
 ## Citation
 
