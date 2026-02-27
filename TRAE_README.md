@@ -34,7 +34,7 @@ bash cursor-agent-team/install_trae.sh
 
 在 TRAE → 设置 → 智能体中创建三个智能体（讨论搭档、执行组员、提示工程师）。每个智能体请使用**按智能体分的安装指南**，按步骤填写所有表单项（名称、提示词、英文标识名、何时调用、工具）。
 
-- 索引与链接：见 `_trae/agent_prompts/README.md`
+- 索引与链接：见 [_trae/agent_prompts/README.md](_trae/agent_prompts/README.md)
 - 带预填值的分步说明：见 `_trae/agent_prompts/<name>_INSTALL_GUIDE.md`（讨论搭档、执行组员、提示工程师各有一份）
 
 说明：英文标识名、何时调用在 TRAE 中为必填项。
