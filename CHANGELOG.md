@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.12.0] - 2026-02-27
+
+### Added
+- Cross-platform Python install scripts: `install.py`, `install_trae.py`, `install_qwen.py`
+- `_scripts/_install_utils.py` shared utility module for install scripts
+
+### Changed
+- README and TRAE_README install commands now use Python scripts instead of bash
+
+### Deprecated
+- `install.sh`, `install_trae.sh`, `install_qwen.sh` (will be removed in a future release)
+
+### Technical Details
+- MINOR increment (0.11.1 → 0.12.0) — cross-platform install scripts
+- Source: PLAN-AC-011
+
 ## [0.11.1] - 2026-02-27
 
 ### Fixed

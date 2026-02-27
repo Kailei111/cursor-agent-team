@@ -1,4 +1,7 @@
 #!/bin/bash
+# DEPRECATED: This script is deprecated. Use the Python version instead:
+#   python cursor-agent-team/install_qwen.py
+# This file will be removed in a future release.
 # install_qwen.sh - Install Cursor AI Agent Team Framework for Qwen Code
 #
 # This script installs the Cursor AI Agent Team Framework into your project

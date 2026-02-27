@@ -7,7 +7,7 @@
 - 已安装 TRAE_CN（v3.3.21+ / v1.3.0+）
 - 已打开包含 `cursor-agent-team` 子模块的项目
 - 使用默认分支（main），TRAE 适配已包含在内
-- 已运行 `bash cursor-agent-team/install_trae.sh` 安装 Skills 和 Rules
+- 已运行 `python cursor-agent-team/install_trae.py` 安装 Skills 和 Rules
 
 ## 智能体列表
 
@@ -54,7 +54,7 @@
 - **提示词字符限制**：TRAE 提示词字段最多 10000 字符
 - **SOLO Coder 调度**：填写「英文标识名」和「何时调用」后，SOLO Coder 可自动调度智能体
 - **更新提示词**：文件更新后需手动重新粘贴到 TRAE GUI
-- **Skills 和 Rules**：通过 `install_trae.sh` 安装，与智能体创建独立
+- **Skills 和 Rules**：通过 `install_trae.py` 安装，与智能体创建独立
 
 ---
 

@@ -1,4 +1,7 @@
 #!/bin/bash
+# DEPRECATED: This script is deprecated. Use the Python version instead:
+#   python cursor-agent-team/install_trae.py
+# This file will be removed in a future release.
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"

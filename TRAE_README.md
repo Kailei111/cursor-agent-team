@@ -22,7 +22,7 @@ git submodule add -f https://github.com/thiswind/cursor-agent-team.git cursor-ag
 ### 2. 运行安装脚本
 
 ```bash
-bash cursor-agent-team/install_trae.sh
+python cursor-agent-team/install_trae.py
 ```
 
 脚本会：
@@ -44,7 +44,7 @@ bash cursor-agent-team/install_trae.sh
 拉取 cursor-agent-team 更新后重新运行安装脚本，与主 README 一致：
 
 ```bash
-git submodule update --remote cursor-agent-team && bash cursor-agent-team/install_trae.sh
+git submodule update --remote cursor-agent-team && python cursor-agent-team/install_trae.py
 ```
 
 ## 使用方式
@@ -108,7 +108,7 @@ cursor-agent-team/
 ├── _cursor/                        # Cursor 专用（TRAE 不使用）
 ├── _scripts/                       # 共用脚本（两平台通用）
 ├── ai_workspace/                   # 共用工作区（两平台通用）
-├── install_trae.sh                 # TRAE 安装脚本
+├── install_trae.py                 # TRAE 安装脚本（Python 跨平台）
 └── TRAE_README.md                  # 本文件
 ```
 
@@ -135,11 +135,11 @@ cursor-agent-team/
 ## 更新 Skills 与 Rules
 
 ```bash
-bash cursor-agent-team/install_trae.sh
+python cursor-agent-team/install_trae.py
 ```
 
 会重新将 rules 与 skills 复制到 `.trae/`。
 
 ---
 
-**版本**：v0.11.1（更新于 2026-02-27）。TRAE 已合并至 main，安装请按各智能体的 INSTALL_GUIDE 操作。
+**版本**：v0.12.0（更新于 2026-02-27）。TRAE 已合并至 main，安装请按各智能体的 INSTALL_GUIDE 操作。

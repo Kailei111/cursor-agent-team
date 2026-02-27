@@ -105,7 +105,7 @@ To use cursor-agent-team in Cursor:
 Tell Cursor Agent:
 
 ```
-Install cursor-agent-team from https://github.com/thiswind/cursor-agent-team.git as a submodule and run the install script.
+Install cursor-agent-team from https://github.com/thiswind/cursor-agent-team.git as a submodule and run the install script (python cursor-agent-team/install.py).
 ```
 
 Then type `/discuss` to start and briefly describe what you want to achieve (e.g., "help me design and write a technical report on X").
@@ -142,19 +142,19 @@ For manual installation or Qwen Code, see [Installation](#installation).
 
 ```bash
 git submodule add -f https://github.com/thiswind/cursor-agent-team.git cursor-agent-team
-./cursor-agent-team/install.sh
+python cursor-agent-team/install.py
 ```
 
-Update: `git submodule update --remote cursor-agent-team && ./cursor-agent-team/install.sh`
+Update: `git submodule update --remote cursor-agent-team && python cursor-agent-team/install.py`
 
 **Qwen Code**:
 
 ```bash
 git submodule add -f https://github.com/thiswind/cursor-agent-team.git cursor-agent-team
-./cursor-agent-team/install_qwen.sh
+python cursor-agent-team/install_qwen.py
 ```
 
-Update: `git submodule update --remote cursor-agent-team && ./cursor-agent-team/install_qwen.sh`
+Update: `git submodule update --remote cursor-agent-team && python cursor-agent-team/install_qwen.py`
 
 **Note**: The workspace at `cursor-agent-team/ai_workspace/` is shared between both platforms.
 
@@ -276,7 +276,7 @@ We focus on methodology depth over feature breadth. No timeline commitments — 
 
 ## Version
 
-Current version: **v0.11.1**. See [CHANGELOG.md](CHANGELOG.md).
+Current version: **v0.12.0**. See [CHANGELOG.md](CHANGELOG.md).
 
 ## Citation
 
