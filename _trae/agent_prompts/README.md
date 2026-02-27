@@ -6,7 +6,7 @@
 
 - 已安装 TRAE_CN（v3.3.21+ / v1.3.0+）
 - 已打开包含 `cursor-agent-team` 子模块的项目
-- 已切换到 `trae-cn` 分支（`cd cursor-agent-team && git checkout trae-cn`）
+- 使用默认分支（main），TRAE 适配已包含在内
 - 已运行 `bash cursor-agent-team/install_trae.sh` 安装 Skills 和 Rules
 
 ## 智能体列表
