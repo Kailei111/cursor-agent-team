@@ -7,16 +7,16 @@ TRAE_CN（字节跳动）平台适配版本。将 cursor-agent-team 的单人多
 - TRAE_CN v3.3.21+（或 v1.3.0+）
 - Python 3.8+
 - Git
+- 使用 main 分支，TRAE 适配已包含在内
 
 ## 安装
 
-### 1. 克隆并带子模块
+### 1. 在已有项目中添加子模块
 
-使用默认分支（main），TRAE 适配已包含在内。
+与 Cursor 版相同：在已有项目根目录将 cursor-agent-team 作为子模块加入。若项目是 clone 且已带 `--recurse-submodules`，则已有 `cursor-agent-team` 目录，可跳过本步。
 
 ```bash
-git clone --recurse-submodules <your-project-repo>
-cd <your-project>
+git submodule add -f https://github.com/thiswind/cursor-agent-team.git cursor-agent-team
 ```
 
 ### 2. 运行安装脚本
@@ -38,6 +38,14 @@ bash cursor-agent-team/install_trae.sh
 - 带预填值的分步说明：见 `_trae/agent_prompts/<name>_INSTALL_GUIDE.md`（讨论搭档、执行组员、提示工程师各有一份）
 
 说明：英文标识名、何时调用在 TRAE 中为必填项。
+
+### 4. 更新（可选）
+
+拉取 cursor-agent-team 更新后重新运行安装脚本，与主 README 一致：
+
+```bash
+git submodule update --remote cursor-agent-team && bash cursor-agent-team/install_trae.sh
+```
 
 ## 使用方式
 
