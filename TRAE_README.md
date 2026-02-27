@@ -62,11 +62,16 @@ bash cursor-agent-team/install_trae.sh
 
 ### 提示工程师（TRAE Prompt Engineer）
 
-用于创建与维护 Agent 提示词、Skills 与项目规则。
+用于创建与维护 Agent 提示词、Skills 与项目规则。采用多轮交互：先理解需求、澄清类型（新智能体 / Skill / 规则），再迭代行为示例，最后生成文件与 INSTALL_GUIDE。**创建新角色不能靠一句短指令完成**，需要明确的需求或方案。
+
+**推荐流程**：先用**讨论搭档**讨论、确定思路并生成方案（或 AGENT-REQUIREMENT）；再用**提示工程师**根据该方案执行——把方案或需求描述交给提示工程师，由其按 Phase 1–3 完成理解、迭代与生成。
+
+示例（在已有方案或需求的前提下调用）：
 
 ```
-@提示工程师 创建一个新的写作助手 Agent
-@提示工程师 更新讨论搭档的提示词
+@提示工程师 根据 ai_workspace/plans/PLAN-XX-001 里的方案，创建新的写作助手智能体
+@提示工程师 根据刚才和讨论搭档确定的 AGENT-REQUIREMENT，生成 Agent Prompt 和 INSTALL_GUIDE
+@提示工程师 在现有 discussion_partner 提示词上做一次小改：增加对 Y 场景的说明
 ```
 
 ## 目录结构
