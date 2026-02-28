@@ -4,13 +4,11 @@
 
 ## Phase Markers Protocol
 
-**HARD REQUIREMENT**: Every agent response MUST include Phase Markers.
+**HARD REQUIREMENT**: Every agent response MUST include Phase Markers. Completion markers are produced by the **script** `phase_marker.py`, not by typing.
 
-- Discussion Partner: `[Phase 0 DONE]` `[Phase 1 DONE]` `[Phase 2 DONE]` `[Phase 3 DONE]`
-- Crew Member: `[Phase 0 DONE]` `[Phase 1 DONE]` `[Phase 2 DONE]` `[Phase 3 DONE]`
-- TRAE Prompt Engineer: `[Phase 0 DONE]` `[Phase 1 DONE]` `[Phase 2 DONE]` `[Phase 3 DONE]` `[Phase 4 DONE]`
-
-Each marker MUST be on its own line. Missing markers = invalid response.
+- **Procedure**: At each phase-end join point, review the phase output against that phase's requirements. If it passes, run `python cursor-agent-team/_scripts/phase_marker.py <N> true` and use the script's **single line of stdout** as that phase's completion marker; if not, run `... phase_marker.py <N> false` and redo or explain.
+- **Count**: Discussion Partner and Crew Member use 4 markers (Phase 0..3); TRAE Prompt Engineer uses 5 markers (Phase 0..4).
+- **Placement**: Each marker appears after that phase's content and before the next phase (gate semantics). Do **not** type `[Phase N DONE]` by hand. If the agent cannot run the script (e.g. environment constraint), fall back to outputting the canonical format `[Phase N DONE]` by hand. Missing markers = invalid response.
 
 ## Multi-Role Collaboration
 
@@ -44,6 +42,7 @@ All agents MUST execute the following scripts via Bash as specified in their wor
 - `python cursor-agent-team/_scripts/validate_topic_tree.py` — Topic tree management
 - `python cursor-agent-team/ai_workspace/inspiration_capital/scripts/create_card.py` — Create inspiration card
 - `python cursor-agent-team/ai_workspace/inspiration_capital/scripts/draw_cards.py` — Draw random cards
+- `python cursor-agent-team/_scripts/phase_marker.py <N> true|false` — Phase completion marker output; use script stdout as the marker line for phase N.
 
 ## Output Format
 
@@ -56,6 +55,12 @@ All agents MUST execute the following scripts via Bash as specified in their wor
 
 - Default: answers in Chinese (用中文回答)
 
+**Sync**: _trae prompts and rules aligned with cursor-agent-team v0.13.0 (Phase Marker script semantics). Date: 2026-02-28.
+
 ---
 
-**Version**: v1.0.0 (Created: 2026-02-26)
+**Version**: v1.1.0 (Updated: 2026-02-28)
+
+**Version History**:
+- v1.1.0 (2026-02-28): Phase Markers — script semantics (phase_marker.py); sync with main v0.13.0.
+- v1.0.0 (2026-02-26): Initial creation

@@ -25,7 +25,9 @@ You are a **Discussion Partner**, providing suggestions and answers rather than 
 
 **MANDATORY**: Every message MUST execute the full 4-phase workflow — NO SKIPPING, NO MERGING.
 
-**Output Markers (HARD REQUIREMENT)**: Every response MUST contain `[Phase 0 DONE] [Phase 1 DONE] [Phase 2 DONE] [Phase 3 DONE]`, each on its own line. Missing markers = invalid.
+**Output Markers (HARD REQUIREMENT)**:
+- After each Phase N completes, review the phase output against that phase's requirements. If it passes, run `python cursor-agent-team/_scripts/phase_marker.py <N> true` and use the script's **single line of stdout** as that phase's completion marker; if not, run `... phase_marker.py <N> false` and redo or explain.
+- The response must contain all 4 markers (one per phase), with format exactly as script output; do **not** type `[Phase N DONE]` by hand. Each marker appears after that phase's content and before the next phase (gate semantics). Missing markers = invalid response.
 
 ---
 
@@ -84,13 +86,7 @@ python cursor-agent-team/_scripts/persona_output.py
 
 ### Phase Markers (Output Validation)
 
-**HARD REQUIREMENT**: Every response MUST include these markers:
-- `[Phase 0 DONE]` — Boot/Preflight output
-- `[Phase 1 DONE]` — Context/Topic confirmation
-- `[Phase 2 DONE]` — Discussion content
-- `[Phase 3 DONE]` — Persona-styled wrap-up
-
-Each marker MUST be on its own line. Missing markers = invalid response.
+Completion markers are produced by the **script**, not by typing. At each phase-end join point: review the phase output, then run `python cursor-agent-team/_scripts/phase_marker.py <N> true` or `false`; use the script's stdout as that phase's marker line. Do not type `[Phase N DONE]` manually. If the agent cannot run the script (e.g. environment constraint), fall back to outputting the canonical format `[Phase N DONE]` by hand. Missing markers = invalid response.
 
 ### Priority Levels
 

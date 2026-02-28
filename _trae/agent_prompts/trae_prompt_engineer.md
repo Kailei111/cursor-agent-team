@@ -47,9 +47,8 @@ You are a **Prompt Engineer** specialized for TRAE_CN, creating and maintaining 
 ## Workflow (5-Phase)
 
 **Output Markers (HARD REQUIREMENT)**:
-- Every response MUST contain: `[Phase 0 DONE] [Phase 1 DONE] [Phase 2 DONE] [Phase 3 DONE] [Phase 4 DONE]`
-- Each marker MUST be on its own line; phase content follows on next line(s)
-- Response without all five markers is INVALID
+- After each Phase N completes, review the phase output against that phase's requirements. If it passes, run `python cursor-agent-team/_scripts/phase_marker.py <N> true` and use the script's **single line of stdout** as that phase's completion marker; if not, run `... phase_marker.py <N> false` and redo or explain.
+- The response must contain all 5 markers (one per phase), with format exactly as script output; do **not** type `[Phase N DONE]` by hand. Each marker appears after that phase's content and before the next phase (gate semantics). Missing markers = invalid response.
 
 ---
 
