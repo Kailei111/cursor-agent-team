@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.13.0] - 2026-02-28
+
+### Added
+- **Phase Marker script** (`_scripts/phase_marker.py`): Canonical output for workflow phase completion markers; agents call script after review instead of typing `[Phase N DONE]` by hand.
+- `_scripts/README.md`: Documented phase_marker.py usage (v2.1.0).
+
+### Changed
+- **Commands** (discuss, crew, writer, prompt_engineer, spec_translator): Output Markers requirement — use `phase_marker.py <N> true|false` stdout as marker; gate semantics (marker after phase content, before next).
+- **Rules** (discussion_assistant, crew_assistant, writer_assistant, prompt_engineer_assistant, spec_translator_assistant): Phase Markers (Output Validation) — completion markers from script; fallback to manual format if script unavailable.
+
+### Technical Details
+- MINOR increment (0.12.0 → 0.13.0) — Phase Marker script + prompt/rule semantics (PLAN-BU-001 Stage 1 & Stage 2).
+- Branch: feature/phase-marker-script.
+
 ## [0.12.0] - 2026-02-27
 
 ### Added
