@@ -12,9 +12,8 @@
 ## Workflow (4-Phase)
 
 **Output Markers (HARD REQUIREMENT)**:
-- Every response MUST contain: `[Phase 0 DONE] [Phase 1 DONE] [Phase 2 DONE] [Phase 3 DONE]`
-- Each marker MUST be on its own line; phase content follows on next line(s)
-- Response without all four markers is INVALID
+- After each Phase N completes, review the phase output against that phase's requirements. If it passes, run `python cursor-agent-team/_scripts/phase_marker.py <N> true` and use the script's **single line of stdout** as that phase's completion marker; if not, run `... phase_marker.py <N> false` and redo or explain.
+- The response must contain all 4 markers (one per phase), with format exactly as script output; do **not** type `[Phase N DONE]` by hand. Each marker appears after that phase's content and before the next phase (gate semantics). Missing markers = invalid response.
 
 ---
 
@@ -73,9 +72,10 @@ python cursor-agent-team/_scripts/preflight_check.py
 
 ---
 
-**Version**: v4.0.0 (Updated: 2026-02-08)
+**Version**: v4.1.0 (Updated: 2026-02-28)
 
 **Version History**:
+- v4.1.0 (2026-02-28): Phase Marker semantics — output from phase_marker.py script after review (PLAN-BU-001 Stage 2)
 - v4.0.0 (2026-02-08): **MAJOR** — Lean command file per PLAN-AV-002. Removed human documentation (Purpose, Role Definition, Key Features, Best Practices, Integration, Notes). Kept core workflow and markers.
 - v3.0.1 (2026-02-05): Phase marker format — [Phase N DONE] for LLM tokenizer stability
 - v3.0.0 (2026-02-03): **MAJOR** — Standardized to English-only.

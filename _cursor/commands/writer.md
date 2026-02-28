@@ -52,8 +52,8 @@ When you use `/writer`, the AI plays the role of an **Academic Writer**:
 Writer uses the **same 4-phase workflow** as Crew. The difference is in **Phase 2 (Execute)**: when producing text, apply writer_assistant rules.
 
 **Output Markers (HARD REQUIREMENT)**:
-- Every response MUST contain: `[Phase 0 DONE] [Phase 1 DONE] [Phase 2 DONE] [Phase 3 DONE]`
-- Each marker MUST be on its own line
+- After each Phase N completes, review the phase output against that phase's requirements. If it passes, run `python cursor-agent-team/_scripts/phase_marker.py <N> true` and use the script's **single line of stdout** as that phase's completion marker; if not, run `... phase_marker.py <N> false` and redo or explain.
+- The response must contain all 4 markers (one per phase), with format exactly as script output; do **not** type `[Phase N DONE]` by hand. Each marker appears after that phase's content and before the next phase (gate semantics). Missing markers = invalid response.
 
 ### Phase 0: Boot
 
@@ -100,9 +100,10 @@ Execute the plan for the paper we discussed.
 
 ---
 
-**Version**: v1.0.3 (Updated: 2026-02-05)
+**Version**: v1.0.4 (Updated: 2026-02-28)
 
 **Version History**:
+- v1.0.4 (2026-02-28): Phase Marker semantics — output from phase_marker.py script after review (PLAN-BU-001 Stage 2)
 - v1.0.3 (2026-02-05): Prompt audit—MUST vs RECOMMENDED clarified; CCF unified to A, B, C; discipline default; Slop Removal Pass trigger (two or more paragraphs).
 - v1.0.2 (2026-02-05): Added Literature Searcher role; CCF A, B, C default; PhD-level search strategy; citation verification.
 - v1.0.1 (2026-02-05): Added setup note (rule loading); added human review reminder.

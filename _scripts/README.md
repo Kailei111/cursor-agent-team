@@ -34,6 +34,7 @@ Hard constraint validation scripts for deterministic LLM output validation.
 | `tts_speak.py` | Text-to-speech (macOS only) | `--check`, `--list-voices` |
 | `preflight_check.py` | Session initialization check | (no flags) |
 | `persona_output.py` | Load persona for output | `--check` |
+| `phase_marker.py` | Output canonical phase markers for workflow validation | `<phase> <done>`, `--help` |
 | `role_identity/*.py` | Role declaration | (no flags) |
 
 ## Usage Examples
@@ -71,6 +72,21 @@ python cursor-agent-team/_scripts/tts_speak.py --list-voices
 python cursor-agent-team/_scripts/preflight_check.py
 ```
 
+### Phase Marker (workflow validation)
+
+After completing and reviewing a phase, call the script to output the canonical marker line (used by discuss/crew/writer/prompt_engineer/spec_translator workflows):
+
+```bash
+# Phase passed review
+python cursor-agent-team/_scripts/phase_marker.py 0 true   # stdout: [Phase 0 DONE], exit 0
+
+# Phase not passed
+python cursor-agent-team/_scripts/phase_marker.py 2 false  # stdout: [Phase 2 NOT DONE], exit 1
+
+# Usage and format
+python cursor-agent-team/_scripts/phase_marker.py --help   # print to stderr, no marker line
+```
+
 ## Detailed Documentation
 
 For detailed parameters and options, run `--help` on any script:
@@ -79,10 +95,12 @@ For detailed parameters and options, run `--help` on any script:
 python cursor-agent-team/_scripts/validate_topic_tree.py --help
 python cursor-agent-team/_scripts/cleanup_ai_workspace.py --help
 python cursor-agent-team/_scripts/tts_speak.py --help
+python cursor-agent-team/_scripts/phase_marker.py --help
 ```
 
 ## Version History
 
+- **v2.1.0** (2026-02-28): Added phase_marker.py for workflow phase marker output (PLAN-BU-001)
 - **v2.0.0** (2026-02-03): Major refactoring - simplified documentation, removed deprecated content
 - **v1.5.0** (2026-02-01): Translated to English
 - **v1.4.0** (2026-02-01): Added cleanup_ai_workspace.py

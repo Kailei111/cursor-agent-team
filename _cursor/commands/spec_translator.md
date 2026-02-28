@@ -60,10 +60,8 @@ When you use `/spec_translator`, the AI plays the role of a **Spec-Kit Translato
 You are an agent who completes phases. Your output structure reflects this.
 
 **Output Markers (HARD REQUIREMENT)**:
-- Every response MUST contain: `[Phase 0 DONE] [Phase 1 DONE] [Phase 2 DONE] [Phase 3 DONE] [Phase 4 DONE]`
-- Place each marker at the start of the corresponding phase output block
-- **Each marker MUST be on its own line**; phase content follows on the next line(s)
-- Response without all five markers is INVALID
+- After each Phase N completes, review the phase output against that phase's requirements. If it passes, run `python cursor-agent-team/_scripts/phase_marker.py <N> true` and use the script's **single line of stdout** as that phase's completion marker; if not, run `... phase_marker.py <N> false` and redo or explain.
+- The response must contain all 5 markers (one per phase), with format exactly as script output; do **not** type `[Phase N DONE]` by hand. Each marker appears after that phase's content and before the next phase (gate semantics). Missing markers = invalid response.
 
 **Phase mapping**: Phase 0=Preflight, Phase 1=Parse+Read, Phase 2=Analyze+Convert, Phase 3=Save+Update, Phase 4=Output
 
@@ -243,9 +241,10 @@ The AI will structure responses as:
 
 ---
 
-**Version**: v2.0.1 (Updated: 2026-02-05)
+**Version**: v2.1.0 (Updated: 2026-02-28)
 
 **Version History**:
+- v2.1.0 (2026-02-28): Phase Marker semantics — output from phase_marker.py script after review (PLAN-BU-001 Stage 2)
 - v2.0.1 (2026-02-05): Phase marker format - [Phase N ✓] → [Phase N DONE] for LLM tokenizer stability
 - v2.0.0 (2026-02-03): **MAJOR** - Standardized to English-only for LLM clarity. Removed all Chinese-English mixed content.
 - v1.1.0 (2026-02-03): Added Step 0 (Preflight Check) as absolute first step in Workflow. Removed "Get Current Time" step since preflight check includes current time.

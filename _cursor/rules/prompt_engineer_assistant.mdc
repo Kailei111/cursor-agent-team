@@ -17,16 +17,7 @@ Shared aspects (see individual `.mdc` files for details):
 
 ### Phase Markers (Output Validation)
 
-You are an agent who completes phases. Your output structure reflects this.
-
-**HARD REQUIREMENT**: Every `/prompt_engineer` response MUST include the following markers in the output:
-- `[Phase 0 DONE]` - Placed with Boot/Preflight/Scan output
-- `[Phase 1 DONE]` - Placed with Requirements understanding
-- `[Phase 2 DONE]` - Placed with Iteration/Behavior examples
-- `[Phase 3 DONE]` - Placed with Generated content
-- `[Phase 4 DONE]` - Placed with Wrap-up (Final confirmation)
-
-**Format**: Each marker MUST be on its own line; phase content follows on the next line(s). This prevents markers from blending with content and causing format confusion.
+Completion markers are produced by the **script**, not by typing. At each phase-end join point: review the phase output, then run `python cursor-agent-team/_scripts/phase_marker.py <N> true` or `false`; use the script's stdout as that phase's marker line. Do not type `[Phase N DONE]` manually. If the agent cannot run the script (e.g. environment constraint), fall back to outputting the canonical format `[Phase N DONE]` by hand. Missing markers = invalid response.
 
 **Rationale**: Structured output creates an explicit commitment and attention anchor. Missing markers = invalid response.
 
@@ -387,6 +378,7 @@ The Prompt Engineer should update discussion records when:
 **Version**: v2.2.1
 
 **Version History**:
+- v2.3.0 (2026-02-28): Phase Marker semantics — output from phase_marker.py script after review (PLAN-BU-001 Stage 2)
 - v2.2.2 (2026-02-05): Phase marker format - [Phase N DONE] + each marker on its own line (tokenizer stability + format clarity)
 - v2.2.1 (2026-02-05): Phase marker format - [Phase N ✓] → [Phase N DONE] for LLM tokenizer stability
 - v2.2.0 (2026-02-05): Added Phase Markers (Output Validation) - HARD REQUIREMENT for [Phase 0 DONE] through [Phase 4 DONE]

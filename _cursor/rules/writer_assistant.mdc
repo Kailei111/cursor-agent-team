@@ -13,6 +13,10 @@ alwaysApply: false
 **Does NOT apply to**: Code, config, BibTeX, file paths, commands — only natural language prose  
 **Default discipline**: Computer Science and Technology
 
+### Phase Markers (Output Validation)
+
+Completion markers are produced by the **script**, not by typing. At each phase-end join point: review the phase output, then run `python cursor-agent-team/_scripts/phase_marker.py <N> true` or `false`; use the script's stdout as that phase's marker line. Do not type `[Phase N DONE]` manually. If the agent cannot run the script (e.g. environment constraint), fall back to outputting the canonical format `[Phase N DONE]` by hand. Missing markers = invalid response. (Writer uses the same 4-phase workflow as Crew.)
+
 ### Mandatory vs Recommended
 
 - **MUST** (every text output): Vocabulary ban + Style constraints — apply in real time while writing
@@ -180,10 +184,10 @@ Full details: `cursor-agent-team/ai_workspace/inspiration_capital/cards/20260205
 
 ---
 
-**Version**: v2.0.0 (Updated: 2026-02-08)
+**Version**: v2.1.0 (Updated: 2026-02-28)
 
 **Version History**:
-
+- v2.1.0 (2026-02-28): Phase Marker semantics — output from phase_marker.py script after review; added Phase Markers subsection (PLAN-BU-001 Stage 2)
 - v2.0.0 (2026-02-08): **Agent readability overhaul** — All tables converted to bullet/key-value; vocabulary ban with "Instead use" alternatives; Trigger/Scope promoted to top; writing_guides cross-check added to Slop Removal Pass (item 10); conciseness pass (removed redundancy). Source: PLAN-AU-001.
 - v1.3.0 (2026-02-05): **Prompt audit**—Mandatory vs Recommended table; MUST (vocabulary ban, style constraints) vs RECOMMENDED (Slop Removal Pass); trigger "two or more paragraphs"; discipline default (CS); academic output defined; stance vs hedging clarified; CCF unified to A, B, C; merged Moltbook tips; removed redundant Prompt Best Practices; consolidated duplicates.
 - v1.2.0 (2026-02-05): **Literature search (Writer-specific)**—Default CCF A, B, C only; PhD-level search strategy (inclusion/exclusion, citation chaining, verification); anti-hallucination. Added citation venue check to slop removal pass. Sources: CCF 2022 list, systematic review methods.

@@ -40,6 +40,7 @@ ehthumbs.db
 # Temporary files
 *.tmp
 *.temp
+ai_workspace/temp/
 *.log
 *.bak
 *.backup
