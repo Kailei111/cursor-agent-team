@@ -12,7 +12,8 @@ import glob
 import os
 import sys
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "_scripts"))
+_scripts_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "_scripts")
+sys.path.insert(0, _scripts_dir)
 import _install_utils as u
 
 
@@ -36,21 +37,31 @@ def main():
         sys.exit(1)
 
     # Step 1: Create directories
-    print("[1/3] Creating .trae directories...")
+    print("[1/4] Creating .trae directories...")
     trae_rules = os.path.join(project_root, ".trae", "rules")
     trae_skills = os.path.join(project_root, ".trae", "skills")
     u.ensure_dir(trae_rules)
     u.ensure_dir(trae_skills)
 
-    # Step 2: Copy project rules
-    print("[2/3] Copying project rules...")
+    # Step 2: Generate ai_workspace from config (shared with install.py / install_qwen.py)
+    print("[2/4] Generating ai_workspace from config...")
+    ok, err = u.ensure_ai_workspace(submodule_dir)
+    if ok is True:
+        u.colored_print("  ✓ ai_workspace generated", "green")
+    elif ok is False:
+        u.colored_print(f"  Warning: ai_workspace generation failed: {err}", "yellow")
+    else:
+        u.colored_print("  Skipped (no ai_workspace_config.json)", "yellow")
+
+    # Step 3: Copy project rules
+    print("[3/4] Copying project rules...")
     src = os.path.join(source_rules, "project_rules.md")
     dst = os.path.join(trae_rules, "project_rules.md")
     u.copy_file(src, dst)
     print(f"  -> {dst}")
 
-    # Step 3: Copy skills
-    print("[3/3] Copying skills...")
+    # Step 4: Copy skills
+    print("[4/4] Copying skills...")
     skill_dirs = sorted(glob.glob(os.path.join(source_skills, "skill-*")))
     for skill_dir in skill_dirs:
         if not os.path.isdir(skill_dir):

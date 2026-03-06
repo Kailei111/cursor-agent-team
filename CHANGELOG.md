@@ -19,6 +19,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - MINOR increment (0.12.0 → 0.13.0) — Phase Marker script + prompt/rule semantics (PLAN-BU-001 Stage 1 & Stage 2).
 - Branch: feature/phase-marker-script.
 
+## [0.13.1] - 2026-03-06
+
+### Added
+- ai_workspace config file: `ai_workspace_config.json` (install-time workspace generation)
+- ai_workspace generator: `_scripts/generate_ai_workspace.py` (non-destructive by default; `--force/--overwrite` for full overwrite)
+
+### Changed
+- Installers (Cursor/TRAE/Qwen) generate shared `ai_workspace/` via `_scripts/_install_utils.ensure_ai_workspace` (single entrypoint)
+- `_qwen` discussion assistant directory tree aligned to the real workspace structure
+
+### Fixed
+- `cursor-agent-team/.gitignore` now ignores generated `ai_workspace/**` while keeping framework `inspiration_capital/scripts` and `tests`
+- `discussion_assistant` docs now use `cursor-agent-team/_scripts/...` prefix consistently
+
 ## [0.12.0] - 2026-02-27
 
 ### Added

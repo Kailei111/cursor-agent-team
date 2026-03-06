@@ -37,8 +37,8 @@ Location: `cursor-agent-team/ai_workspace/`
 - `scratchpad/` — Temporary files (auto-cleanup after 7 days)
 
 **Scripts**: Run `--help` for detailed usage:
-- `python _scripts/cleanup_ai_workspace.py --help`
-- `python _scripts/validate_topic_tree.py --help`
+- `python cursor-agent-team/_scripts/cleanup_ai_workspace.py --help`
+- `python cursor-agent-team/_scripts/validate_topic_tree.py --help`
 
 ---
 

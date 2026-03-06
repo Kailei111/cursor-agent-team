@@ -143,3 +143,20 @@ def check_environment(project_root, submodule_dir):
     if not os.path.isdir(submodule_dir):
         return False, f"Submodule not found at {submodule_dir}."
     return True, "Environment check passed."
+
+
+def ensure_ai_workspace(submodule_dir):
+    """
+    Generate ai_workspace from config if ai_workspace_config.json exists.
+    Shared by install.py, install_trae.py, install_qwen.py (ai_workspace is common).
+    Returns (True, None) on success, (False, error_message) on failure, (None, None) if skipped (no config).
+    """
+    config_path = os.path.join(submodule_dir, "ai_workspace_config.json")
+    if not os.path.isfile(config_path):
+        return None, None
+    try:
+        import generate_ai_workspace as gen_ws
+        gen_ws.run(submodule_dir, config_path=config_path)
+        return True, None
+    except Exception as e:
+        return False, str(e)

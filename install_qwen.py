@@ -69,6 +69,17 @@ def main():
     u.colored_print("✓ Directories created", "green")
     print()
 
+    # Step 2b: Generate ai_workspace from config (shared with install.py / install_trae.py)
+    print("Step 2b: Generating ai_workspace from config...")
+    ok, err = u.ensure_ai_workspace(submodule_dir)
+    if ok is True:
+        u.colored_print("✓ ai_workspace generated", "green")
+    elif ok is False:
+        u.colored_print(f"Warning: ai_workspace generation failed: {err}", "yellow")
+    else:
+        u.colored_print("Skipped (no ai_workspace_config.json)", "yellow")
+    print()
+
     # Step 3: Copy files
     print("Step 3: Copying files...")
     all_files = COMMAND_FILES + CONTEXT_FILES

@@ -11,7 +11,8 @@ Prerequisites:
 import os
 import sys
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "_scripts"))
+_scripts_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "_scripts")
+sys.path.insert(0, _scripts_dir)
 import _install_utils as u
 
 SUBMODULE_NAME = "cursor-agent-team"
@@ -64,6 +65,18 @@ def main():
     u.ensure_dir(os.path.join(project_root, ".cursor", "rules"))
     u.ensure_dir(os.path.join(submodule_dir, "config"))
     u.colored_print("✓ Directories created", "green")
+    print()
+
+    # Step 2b: Generate ai_workspace from config (PLAN-AF-001; shared with install_trae/install_qwen)
+    print("Step 2b: Generating ai_workspace from config...")
+    ok, err = u.ensure_ai_workspace(submodule_dir)
+    if ok is True:
+        u.colored_print("✓ ai_workspace generated", "green")
+    elif ok is False:
+        u.colored_print(f"Warning: ai_workspace generation failed: {err}", "yellow")
+        print("  (Install continues; you may need to run generate_ai_workspace.py manually.)")
+    else:
+        u.colored_print("Step 2b: Skipped (no ai_workspace_config.json)", "yellow")
     print()
 
     # Step 3: Copy files

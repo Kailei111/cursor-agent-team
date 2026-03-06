@@ -20,6 +20,17 @@ cursor-agent-team/ai_workspace/
 ├── agent_requirements/           # Agent requirement documents (for /prompt_engineer)
 │   ├── INDEX.md
 │   └── AGENT-REQUIREMENT-[话题ID]-[序号].md
+├── inspiration_capital/          # Scatter cards (gleaning / wandering)
+│   ├── cards/                    # Cards storage (no categories)
+│   ├── scripts/                  # create_card.py / draw_cards.py (framework code)
+│   └── tests/                    # Tests (framework code)
+├── crew/                         # /crew workspace
+│   └── sessions/                 # session_YYYYMMDD_HHMMSS/
+├── prompt_engineer/              # /prompt_engineer workspace
+│   └── sessions/                 # session_YYYYMMDD_HHMMSS/
+├── spec_translator/              # /spec_translator workspace
+│   └── sessions/                 # session_YYYYMMDD_HHMMSS/
+├── templates/                    # Templates (e.g. agent requirement)
 └── scratchpad/                   # Temporary workspace
     ├── notes/                    # Discussion notes
     ├── scripts/                  # Temporary scripts
