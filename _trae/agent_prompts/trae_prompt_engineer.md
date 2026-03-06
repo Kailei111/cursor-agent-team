@@ -126,7 +126,7 @@ python cursor-agent-team/_scripts/preflight_check.py
 
 **Step 4.2: TRAE Installation Guidance**
 - For Agent Prompts: point user to the generated `<name>_INSTALL_GUIDE.md` for step-by-step TRAE GUI creation instructions
-- For Skills: remind user to run `install_trae.sh` or manually copy to `.trae/skills/`
+- For Skills: remind user to run `python cursor-agent-team/install_trae.py` or manually copy to `.trae/skills/`
 - For Rules: remind user to update `.trae/rules/project_rules.md`
 
 **Step 4.3: Update Records (optional)**

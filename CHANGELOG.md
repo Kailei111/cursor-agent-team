@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.14.0] - 2026-03-06
+
+### Added
+- Python uninstallers: `uninstall.py`, `uninstall_qwen.py`, `uninstall_trae.py`
+
+### Changed
+- Docs now reference Python-only install/uninstall scripts
+
+### Removed
+- Legacy shell install/uninstall scripts (install*.sh / uninstall*.sh)
+
 ## [0.13.0] - 2026-02-28
 
 ### Added
@@ -43,7 +54,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - README and TRAE_README install commands now use Python scripts instead of bash
 
 ### Deprecated
-- `install.sh`, `install_trae.sh`, `install_qwen.sh` (will be removed in a future release)
+- Legacy shell install scripts (removed in 0.14.0)
 
 ### Technical Details
 - MINOR increment (0.11.1 → 0.12.0) — cross-platform install scripts
@@ -62,7 +73,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - **TRAE_CN adaptation**: Full platform port for ByteDance TRAE_CN IDE
 - `_trae/` directory with Agent Prompts, Skills, and project rules
-- `install_trae.sh` for one-command TRAE-side setup (rules + skills)
+- `install_trae.py` for one-command TRAE-side setup (rules + skills)
 - `TRAE_README.md` as dedicated TRAE installation and usage guide
 - Per-agent `INSTALL_GUIDE.md` files with pre-filled TRAE GUI form values
 - Output Type Decision Rule in `trae-prompt-engineer` (Skill vs Agent distinction)
@@ -212,7 +223,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Social Media Policy Rule**: Restored `social_media_policy.mdc` (v1.1.0) - was documented in v0.6.0 but file was never committed
   - Reconstructed from CHANGELOG v0.6.0 and project context
   - Prompt engineer refinement: NEVER DO, Trigger, Primary rule, Classification Rule, Quota source
-  - Added to install.sh and uninstall.sh
+  - Added to install.py and uninstall.py
 
 ### Technical Details
 - PATCH increment (0.10.3 → 0.10.4)
@@ -633,8 +644,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - New `_qwen/` directory containing Qwen Code-specific files
   - Context files (`.md`) in `.qwen/context/` directory (equivalent to `.cursor/rules/`)
   - Command files (`.toml`) in `.qwen/commands/` directory (equivalent to `.cursor/commands/`)
-  - New installation script `install_qwen.sh` for Qwen Code
-  - New uninstall script `uninstall_qwen.sh` for Qwen Code
+  - New installation script `install_qwen.py` for Qwen Code
+  - New uninstall script `uninstall_qwen.py` for Qwen Code
   - Shared workspace: `cursor-agent-team/ai_workspace/` is shared between Cursor and Qwen Code platforms
 - **Strict Prompt Requirements for Qwen**: Enhanced prompts with strict requirements
   - Mandatory time retrieval via command execution (`date '+%Y-%m-%d %H:%M:%S'`)
@@ -703,7 +714,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - **Documentation refactoring**: Restructured README to clarify project as a Cursor IDE extension framework
-- Clarified that `install.sh` installs commands into `.cursor/` directory, making them available as `/discuss`, `/prompt_engineer`, and `/crew` in Cursor
+- Clarified that `install.py` installs commands into `.cursor/` directory, making them available as `/discuss`, `/prompt_engineer`, and `/crew` in Cursor
 - Emphasized that `prompt_engineer` creates new roles (new Cursor commands), not just prompt templates
 - Simplified documentation to focus on team roles and collaboration workflow
 - Removed detailed feature lists, focusing on core concepts and usage examples
