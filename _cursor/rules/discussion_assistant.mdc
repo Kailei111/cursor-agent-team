@@ -34,7 +34,7 @@ Location: `cursor-agent-team/ai_workspace/`
 - `plans/` — Execution plans (`PLAN-[TopicID]-[Seq].md`)
 - `agent_requirements/` — Agent requirements (`AGENT-REQUIREMENT-[TopicID]-[Seq].md`)
 - `discussion_topics.md` — Topic tree (managed by `validate_topic_tree.py`)
-- `scratchpad/` — Temporary files (auto-cleanup after 7 days)
+- `scratchpad/` — Preparation workspace for deep thinking (see Thinking Depth section and `ai_workspace/scratchpad/README.md`)
 
 **Scripts**: Run `--help` for detailed usage:
 - `python cursor-agent-team/_scripts/cleanup_ai_workspace.py --help`
@@ -86,6 +86,38 @@ Location: `cursor-agent-team/ai_workspace/`
 **Examples**:
 - "Where are we in our discussion?" → Read topic tree only
 - "Look at the loss function in method.md" → Read the specific file mentioned
+
+---
+
+## Thinking Depth (MUST)
+
+**Relation to Minimal Action**: Thinking Depth complements Minimal Action — shallow questions follow Minimal Action; deep questions MUST use scratchpad.
+
+**Shallow Questions** (quick answer OK):
+- "Where are we?" — topic tree only
+- "What is X?" — brief explanation from memory
+- "Read file X" — read and summarize
+- Simple factual questions
+
+**Deep Questions** (MUST use scratchpad):
+- Technical design / architecture decisions
+- Method comparison / trade-off analysis
+- Claims requiring verification (code, math, search)
+- Multi-step reasoning or planning
+- Any question where the agent is unsure and needs investigation
+
+**When Deep Thinking Required**:
+1. Read `ai_workspace/scratchpad/README.md` for usage guidelines
+2. Use appropriate subdirectory:
+   - `research/` — search excerpts, citations
+   - `analysis/` — conclusions, comparison tables
+   - `drafts/` — answer drafts before finalizing
+   - `scripts/` — verification scripts
+   - `figures/` — diagrams
+3. Work through: research → analysis → draft → answer
+4. Cleanup after discussion ends (see `ai_workspace/notes/sop_ai_workspace_deletion.md`)
+
+**NEVER**: Answer deep questions without preparation in scratchpad.
 
 ---
 
@@ -147,9 +179,10 @@ Plans are consumed by AI agents, not humans. When generating PLAN or AGENT-REQUI
 
 ---
 
-**Version**: v5.0.0 (Updated: 2026-02-08)
+**Version**: v5.2.0 (Updated: 2026-03-09)
 
 **Version History**:
+- v5.2.0 (2026-03-09): Added Thinking Depth section — shallow vs deep question classification, scratchpad integration for deep thinking
 - v5.1.0 (2026-02-28): Phase Marker semantics — output from phase_marker.py script after review (PLAN-BU-001 Stage 2)
 - v5.0.0 (2026-02-08): **MAJOR** — Conciseness overhaul per PLAN-AV-002. Script-as-Truth deletions (Time Awareness section), tables→bullets, MUST/RECOMMENDED markers, merged Behavior Constraints sections, added Agent-Friendly Plan Format, English-only.
 - v4.2.2 (2026-02-05): Phase marker format — [Phase N DONE] + each marker on its own line

@@ -22,8 +22,7 @@ cursor-agent-team/ai_workspace/
 │   └── AGENT-REQUIREMENT-[话题ID]-[序号].md
 ├── inspiration_capital/          # Scatter cards (gleaning / wandering)
 │   ├── cards/                    # Cards storage (no categories)
-│   ├── scripts/                  # create_card.py / draw_cards.py (framework code)
-│   └── tests/                    # Tests (framework code)
+│   └── scripts/                  # create_card.py / draw_cards.py (framework code)
 ├── crew/                         # /crew workspace
 │   └── sessions/                 # session_YYYYMMDD_HHMMSS/
 ├── prompt_engineer/              # /prompt_engineer workspace
@@ -31,10 +30,13 @@ cursor-agent-team/ai_workspace/
 ├── spec_translator/              # /spec_translator workspace
 │   └── sessions/                 # session_YYYYMMDD_HHMMSS/
 ├── templates/                    # Templates (e.g. agent requirement)
-└── scratchpad/                   # Temporary workspace
-    ├── notes/                    # Discussion notes
-    ├── scripts/                  # Temporary scripts
-    ├── analysis/                 # Analysis results
+└── scratchpad/                   # Preparation workspace for deep thinking
+    ├── research/                 # Search excerpts, citations
+    ├── analysis/                 # Analysis conclusions
+    ├── drafts/                   # Answer drafts before finalizing
+    ├── figures/                  # Sketches, diagrams
+    ├── scripts/                  # Temporary verification scripts
+    ├── notes/                    # Discussion notes (final output)
     └── temp/                     # Other temporary files
 ```
 
@@ -224,6 +226,36 @@ AI **MUST automatically search** when:
 - ❌ **Bad**: User asks "我们聊到哪里了？" → Read topic tree + read method discussions + read todos + read project status
 - ✅ **Good**: User asks "看一下 method.md 中的损失函数" → Read the specific file mentioned
 - ❌ **Bad**: User asks "讨论一下损失函数" → Proactively read method.md without user mentioning it (unless question cannot be answered otherwise)
+
+## Thinking Depth (MUST)
+
+**Relation to Minimal Action**: Thinking Depth complements Minimal Action — shallow questions follow Minimal Action; deep questions MUST use scratchpad.
+
+**Shallow Questions** (quick answer OK):
+- "Where are we?" — topic tree only
+- "What is X?" — brief explanation from memory
+- "Read file X" — read and summarize
+- Simple factual questions
+
+**Deep Questions** (MUST use scratchpad):
+- Technical design / architecture decisions
+- Method comparison / trade-off analysis
+- Claims requiring verification (code, math, search)
+- Multi-step reasoning or planning
+- Any question where the agent is unsure and needs investigation
+
+**When Deep Thinking Required**:
+1. Read `cursor-agent-team/ai_workspace/scratchpad/README.md` for usage guidelines
+2. Use appropriate subdirectory:
+   - `research/` — search excerpts, citations
+   - `analysis/` — conclusions, comparison tables
+   - `drafts/` — answer drafts before finalizing
+   - `scripts/` — verification scripts
+   - `figures/` — diagrams
+3. Work through: research → analysis → draft → answer
+4. Cleanup after discussion ends (see `cursor-agent-team/ai_workspace/notes/sop_ai_workspace_deletion.md`)
+
+**NEVER**: Answer deep questions without preparation in scratchpad.
 
 ## Topic Tree Management Rules
 

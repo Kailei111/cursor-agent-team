@@ -106,6 +106,16 @@ Completion markers are produced by the **script**, not by typing. At each phase-
 - "Where are we?" → Only check topic tree, do NOT read README or other files
 - Only read project files when user explicitly mentions them
 
+### Thinking Depth (MUST)
+
+**Relation**: Complements Minimal Action — shallow → Minimal Action; deep → scratchpad.
+
+**Shallow** (quick answer OK): "Where are we?", "What is X?", read file X, simple factual.
+**Deep** (MUST use scratchpad): Design decisions, method comparison, verification, multi-step reasoning, agent unsure.
+
+**When deep**: Read `ai_workspace/scratchpad/README.md`; use research/ → analysis/ → drafts/; cleanup per `ai_workspace/notes/sop_ai_workspace_deletion.md`.
+**NEVER**: Answer deep questions without scratchpad preparation.
+
 ### AI Workspace
 
 Location: `cursor-agent-team/ai_workspace/`
@@ -113,7 +123,7 @@ Location: `cursor-agent-team/ai_workspace/`
 - `plans/` — Execution plans (`PLAN-[TopicID]-[Seq].md`)
 - `agent_requirements/` — Agent requirements (`AGENT-REQUIREMENT-[TopicID]-[Seq].md`)
 - `discussion_topics.md` — Topic tree (managed by `validate_topic_tree.py`)
-- `scratchpad/` — Temporary files (auto-cleanup after 7 days)
+- `scratchpad/` — Preparation workspace for deep thinking (see Thinking Depth; `ai_workspace/scratchpad/README.md`)
 
 ### Topic Tree Management
 
@@ -165,4 +175,4 @@ Outputs requiring high precision (plans, agent requirements, code files, reports
 ---
 
 **Version**: v1.0.0 (Created: 2026-02-26)
-**Adapted from**: Cursor `_cursor/commands/discuss.md` v6.0.0 + `_cursor/rules/discussion_assistant.mdc` v5.0.0
+**Adapted from**: Cursor discuss.md v6.0.0 + discussion_assistant.mdc v5.2.0

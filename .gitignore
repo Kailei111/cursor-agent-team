@@ -5,8 +5,6 @@ ai_workspace/**
 !ai_workspace/inspiration_capital/
 !ai_workspace/inspiration_capital/scripts/
 !ai_workspace/inspiration_capital/scripts/**
-!ai_workspace/inspiration_capital/tests/
-!ai_workspace/inspiration_capital/tests/**
 
 # Ignore user-generated cards
 ai_workspace/inspiration_capital/cards/**

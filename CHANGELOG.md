@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.14.1] - 2026-03-09
+
+### Added
+- **Thinking Depth** (discussion_assistant): Shallow vs deep question classification; deep questions MUST use scratchpad (research → analysis → draft → answer). Complements Minimal Action Principle.
+- Scratchpad subdirs: research/, drafts/, figures/ (align `_qwen` and `_trae` directory trees)
+
+### Changed
+- `_cursor/rules/discussion_assistant.mdc` v5.0.0 → v5.2.0
+- `_qwen/context/discussion_assistant.md`: Thinking Depth section, scratchpad tree, inspiration_capital (removed tests)
+- `_trae/agent_prompts/discussion_partner.md`: Thinking Depth (compact), scratchpad description, Adapted from v5.2.0
+
+### Removed
+- `ai_workspace/inspiration_capital/tests/` (per prior cleanup)
+
+### Technical Details
+- Source: PLAN-AK-001
+- PATCH increment (0.14.0 → 0.14.1)
+- TRAE char count: 7793 (< 10000 limit)
+
 ## [0.14.0] - 2026-03-06
 
 ### Added
